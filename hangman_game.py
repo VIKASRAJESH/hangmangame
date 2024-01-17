@@ -17,33 +17,32 @@ guesses=''
 
 turns=12
 
-if replay==1:
-    while turns>0:
-        failed=0
-        for char in word:
-            if char in guesses:
-                print("\n",char,end='')
-            else:
-                print('_')
-                failed+=1
+
+while turns>0:
+    failed=0
+    for char in word:
+        if char in guesses:
+            print("\n",char,end='')
+        else:
+            print('_')
+            failed+=1
+    
+    
+    if failed == 0:
+        print('\nYOU WIN!!!:)')
         
-        
-        if failed == 0:
-            print('\nYOU WIN!!!:)')
-            
-            print("\nThe Word is :",word)
-            break
-        print()
-        guess=input("\nGuess a character:")
-        guesses+=guess
-        
-        
-        if guess not in word:
-            turns-=1
-            print("Wrong Guess")
-            print("You Have" ,+turns ,"More Guesses")
-        
-        
-        if turns==0:
-            print("\nYOU LOSE!!!!!:|")
-replay=input("Do you want to play again? (type 1 if 'yes')")
+        print("\nThe Word is :",word)
+        break
+    print()
+    guess=input("\nGuess a character:")
+    guesses+=guess
+    
+    
+    if guess not in word:
+        turns-=1
+        print("\nWrong Guess")
+        print("\nYou Have" ,+turns ,"More Guesses")
+    
+    
+    if turns==0:
+        print("\nYOU LOSE!!!!!:|")
